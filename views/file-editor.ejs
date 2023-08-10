@@ -1,9 +1,91 @@
-<%- include("partials/header1.ejs") %>
-<div class="container">
-	<div class="item a"></div>
-	<div class="item b"></div>
-	<div class="item c"></div>
-	<div class="item d"></div>
-	<div class="item e"></div>
-	<div class="item f"></div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="/Stylesheet/main.css">
+	<link rel="stylesheet" href="/Stylesheet/style2.css">
+	
+</head>
+<body>
+	<div class="mcontainer">
+		<div class="mitem a">
+			<span class="fs-5 fw-semibold" style="margin-left: 100px">THE STAR DMS</span>
+			<span>
+				<span>Email
+					<a href="/">
+						<button style="border-radius: 15%;">Log out</button>
+					</a></span>
+					<span style="margin-left: 20px;" id="span-button">
+						Username
+						<img class="icons-a" src="/Images/icons8-menu-50.png" alt="">
+					</span>
+					<img style="height: 25px; width: 25px; margin-left: 15px; margin-right: 15px;" src="/Images/icons8-question-mark-64.png" alt="">
+			</span>
+		</div>
+
+		<div class="mitem b">
+			<span class="edits" id="add_folder">
+				<img class="icons8" src="/Images/icons8-folder-50.png" alt="">
+				<span >
+					<img style="width: 15px;" src="/Images/icons8-add-50.png" alt="">
+					Folder
+				</span>
+			</span>
+			<span class="edits">
+				<img class="icons8" src="/Images/icons8-modify-58.png" alt="">
+				Modify
+			</span>
+			<span class="edits">
+				<img class="icons8" src="/Images/icons8-columns-50.png" alt="">
+				Columns
+			</span>
+			<span class="edits">
+				<img class="icons8" src="/Images/icons8-audit-50.png" alt="">
+				Audit Log
+			</span>
+		</div>
+		<div class="mitem">
+			<%- include("partials/sidebar.ejs") %>
+		</div>
+		<div class="mitem d working_board">
+			<div class="dotted-box collapse show">Click or Drag your file here</div>			
+							
+			<div class="overlay" id="overlay">
+				<div class="notification">
+					<span class="cancel-creation"><img id="close-notification" src="/Images/icons8-cancel-50.png" alt=""></span>
+					<p class="Notification-head">Add a new folder below</p>
+					<form action="/about" method="get">
+						<input type="text" placeholder="Folder Name" name="new-folder" required>
+						<button class="folder-btn" type="submit">Add</button>
+					</form>
+				</div>
+			</div>
+			
+			
+		</div>
+
+		<div class="mitem e"> </div>
+		<div class="mitem f"><%- include("partials/footer.ejs") %></div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+		const showNotificationButton = document.getElementById("add_folder");
+		const closeNotificationButton = document.getElementById("close-notification");
+		const overlay = document.getElementById("overlay");
+
+		showNotificationButton.addEventListener("click", () => {
+		overlay.style.display = "block";
+		});
+
+		closeNotificationButton.addEventListener("click", () => {
+		overlay.style.display = "none";
+		});
+
+		const add_section = document
+	</script>
+	
+</body>
+</html>
