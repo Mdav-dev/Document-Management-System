@@ -114,3 +114,9 @@
 	background-color: rgba(0, 0, 0, 0);
 	border-radius: 15%;
 }
+.doc-sections{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 10%;
+}
