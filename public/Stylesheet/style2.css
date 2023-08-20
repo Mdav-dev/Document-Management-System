@@ -102,7 +102,13 @@
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 .cancel-creation{
-	
+	display: flex;
+	justify-content: end;
+	height: 35px;	
+}
+.cancel-creation img{
+	height: 35px;
+
 }
 .add-section-btn{
 	background-color: rgba(0, 0, 0, 0);

@@ -14,12 +14,12 @@
 		<div class="mitem a">
 			<span class="fs-5 fw-semibold" style="margin-left: 100px">THE STAR DMS</span>
 			<span>
-				<span>Email
+				<span><%= email %>
 					<a href="/">
 						<button style="border-radius: 15%;">Log out</button>
 					</a></span>
 					<span style="margin-left: 20px;" id="span-button">
-						Username
+						<%= username %>
 						<img class="icons-a" src="/Images/icons8-menu-50.png" alt="">
 					</span>
 					<img style="height: 25px; width: 25px; margin-left: 15px; margin-right: 15px;" src="/Images/icons8-question-mark-64.png" alt="">
@@ -56,9 +56,20 @@
 			<div class="overlay" id="overlay">
 				<div class="notification">
 					<span class="cancel-creation"><img id="close-notification" src="/Images/icons8-cancel-50.png" alt=""></span>
-					<p class="Notification-head">Add a new folder below</p>
-					<form action="/about" method="get">
+					<p class="Notification-head">Add the new folder below</p>
+					<form action="/about" method="post">
 						<input type="text" placeholder="Folder Name" name="new-folder" required>
+						<button class="folder-btn" type="submit">Add</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="overlay" id="overlayer">
+				<div class="notification">
+					<span class="cancel-creation"><img id="close-prompt" src="/Images/icons8-cancel-50.png" alt=""></span>
+					<p class="Notification-head">Add the new section below</p>
+					<form action="/about" method="post">
+						<input type="text" placeholder="Section Name" name="new-section" required>
 						<button class="folder-btn" type="submit">Add</button>
 					</form>
 				</div>
@@ -71,6 +82,9 @@
 		<div class="mitem f"><%- include("partials/footer.ejs") %></div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+
 	<script>
 		const showNotificationButton = document.getElementById("add_folder");
 		const closeNotificationButton = document.getElementById("close-notification");
@@ -84,8 +98,23 @@
 		overlay.style.display = "none";
 		});
 
-		const add_section = document
+		const add_section = document.getElementById("add-section-btn");
+		const closePrompt = document.getElementById("close-prompt");
+		const overlayer = document.getElementById("overlayer");
+
+		add_section.addEventListener("click", () => {
+		overlayer.style.display = "block";
+		});
+
+		closePrompt.addEventListener("click", () => {
+		overlayer.style.display = "none";
+		});
+
+		
+
+		
 	</script>
+	<script src="../index.js"></script>
 	
 </body>
 </html>

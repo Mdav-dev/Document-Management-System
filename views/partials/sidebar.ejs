@@ -1,7 +1,17 @@
 <div class="c">
 	<div class="doc-sections" id="doc-sections">
 		<h3>Main Menu</h3>
-		<button class="add-section-btn">
+		<ul>
+			<% if(section){
+				var sect = [];
+				sect.push(section);
+				for(var i=0; i<sect.length; i++){%>
+					<li> <%= sect[i] %></li>
+				<% } %>
+			<% }else{} %>
+
+		</ul>
+		<button class="add-section-btn" id="add-section-btn">
 			<span>
 				<img style="width: 30px;" src="/Images/icons8-add-50.png" alt="">
 				Create A New Section
