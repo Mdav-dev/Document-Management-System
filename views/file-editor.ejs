@@ -27,14 +27,14 @@
 		</div>
 
 		<div class="mitem b">
-			<span class="edits" id="add_folder">
+			<span class="edits" id="add_folder_btn">
 				<img class="icons8" src="/Images/icons8-folder-50.png" alt="">
 				<span >
 					<img style="width: 15px;" src="/Images/icons8-add-50.png" alt="">
 					Folder
 				</span>
 			</span>
-			<span class="edits">
+			<span class="edits" id="modify_btn">
 				<img class="icons8" src="/Images/icons8-modify-58.png" alt="">
 				Modify
 			</span>
@@ -51,7 +51,7 @@
 			<%- include("partials/sidebar.ejs") %>
 		</div>
 		<div class="mitem d working_board">
-			<div class="dotted-box collapse show">Click or Drag your file here</div>			
+			<div class="dotted-box collapse show" id="drag-items">Click or Drag your file here</div>			
 							
 			<div class="overlay" id="overlay">
 				<div class="notification">
@@ -74,47 +74,62 @@
 					</form>
 				</div>
 			</div>
+
+			<div class="modify" id="modify"><%- include("modify-form.html") %></div>
 			
 			
 		</div>
 
 		<div class="mitem e"> </div>
 		<div class="mitem f"><%- include("partials/footer.ejs") %></div>
+		<%- include("partials/control.js") %>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 
 
 	<script>
-		const showNotificationButton = document.getElementById("add_folder");
-		const closeNotificationButton = document.getElementById("close-notification");
-		const overlay = document.getElementById("overlay");
+		function buttons(addFolder, notificationShut, classToChange){
+			const showNotificationButton = document.getElementById(addFolder);
+			const closeNotificationButton = document.getElementById(notificationShut);
+			const overlay = document.getElementById(classToChange);
 
-		showNotificationButton.addEventListener("click", () => {
-		overlay.style.display = "block";
-		});
+			showNotificationButton.addEventListener("click", () => {
+				overlay.style.display = "block";
+			});
 
-		closeNotificationButton.addEventListener("click", () => {
-		overlay.style.display = "none";
-		});
+			closeNotificationButton.addEventListener("click", () => {
+				overlay.style.display = "none";
+			});
+		}
+		buttons("add_folder_btn", "close-notification", "overlay");
+		buttons("add-section-btn", "close-prompt", "overlayer");
 
-		const add_section = document.getElementById("add-section-btn");
-		const closePrompt = document.getElementById("close-prompt");
-		const overlayer = document.getElementById("overlayer");
+		function buttons2(addFolder, notificationShut, classToChange){
+			const showNotificationButton = document.getElementById(addFolder);
+			const closeNotificationButton = document.getElementById(notificationShut);
+			const overlay = document.getElementById(classToChange);
+			const default_display = document.getElementById("drag-items").style;
 
-		add_section.addEventListener("click", () => {
-		overlayer.style.display = "block";
-		});
+			showNotificationButton.addEventListener("click", () => {
+				
+				overlay.classList.add("modifyNew");	
+				overlay.classList.remove("modify");			
+				default_display.display = "none";
 
-		closePrompt.addEventListener("click", () => {
-		overlayer.style.display = "none";
-		});
 
+			});
+
+			closeNotificationButton.addEventListener("click", () => {
+				overlay.style.display = "none";
+				default_display.display = "flex"
+			});
+		}
+		buttons2("modify_btn", "toHome", "modify");
 		
-
 		
 	</script>
-	<script src="../index.js"></script>
+	
 	
 </body>
 </html>
