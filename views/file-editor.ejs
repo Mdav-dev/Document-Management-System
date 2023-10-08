@@ -16,7 +16,7 @@
 			<span>
 				<span><%= email %>
 					<a href="/">
-						<button style="border-radius: 15%;">Log out</button>
+						<button style="border-radius: 15%; background-color: rgba(252, 250, 250, 0.192);">Log out</button>
 					</a></span>
 					<span style="margin-left: 20px;" id="span-button">
 						<%= username %>
@@ -82,8 +82,8 @@
 
 		<div class="mitem e"> </div>
 		<div class="mitem f"><%- include("partials/footer.ejs") %></div>
-		<%- include("partials/control.js") %>
 	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 
@@ -125,7 +125,7 @@
 				default_display.display = "flex"
 			});
 		}
-		buttons2("modify_btn", "toHome", "modify");
+		buttons2("modify_btn", "cancel_modify", "modify");
 		
 		
 	</script>
